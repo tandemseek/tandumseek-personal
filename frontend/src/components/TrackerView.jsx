@@ -9,7 +9,7 @@ export default function TrackerView() {
   }, []);
 
   const fetchLog = async () => {
-    const res = await axios.get('/api/log');
+    const res = await axios.get('http://localhost:5000/api/log');
     setLog(res.data);
   };
 

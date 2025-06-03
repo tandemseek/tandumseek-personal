@@ -11,7 +11,7 @@ export default function App() {
   const [tab, setTab] = useState('results');
 
   const fetchJobs = async () => {
-    const res = await axios.get('/api/jobs');
+    const res = await axios.get('http://localhost:5000/api/jobs');
     setJobs(res.data);
     setTab('results');
   };

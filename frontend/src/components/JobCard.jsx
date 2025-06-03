@@ -9,7 +9,7 @@ export default function JobCard({ job, onApply, onSkip }) {
   const [template, setTemplate] = useState('Classic');
 
   const apply = async () => {
-    const res = await axios.post('/api/apply', { ...job, tone, template });
+    const res = await axios.post('http://localhost:5000/api/apply', { ...job, tone, template });
     setResult(res.data);
     setEditing(true);
     onApply(job.url);
@@ -17,12 +17,12 @@ export default function JobCard({ job, onApply, onSkip }) {
 
   
   const save = async () => {
-    await axios.post('/api/save', job);
+    await axios.post('http://localhost:5000/api/save', job);
     alert("Job saved!");
   };
 
   const skip = async () => {
-    await axios.post('/api/skip', job);
+    await axios.post('http://localhost:5000/api/skip', job);
     onSkip(job.url);
   };
 
@@ -38,7 +38,7 @@ export default function JobCard({ job, onApply, onSkip }) {
 
   
   const downloadPDF = async (text, filename) => {
-    const res = await axios.post('/api/export/pdf', { content: text, filename }, { responseType: 'blob' });
+    const res = await axios.post('http://localhost:5000/api/export/pdf', { content: text, filename }, { responseType: 'blob' });
     const blob = new Blob([res.data], { type: 'application/pdf' });
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');

@@ -10,12 +10,12 @@ export default function KeywordManager() {
   }, []);
 
   const loadKeywords = async () => {
-    const res = await axios.get('/api/keywords');
+    const res = await axios.get('http://localhost:5000/api/keywords');
     setKeywords(res.data);
   };
 
   const saveKeywords = async () => {
-    await axios.post('/api/keywords', keywords);
+    await axios.post('http://localhost:5000/api/keywords', keywords);
     alert("Keywords saved!");
   };
 

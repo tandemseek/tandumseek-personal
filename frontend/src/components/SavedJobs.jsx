@@ -9,19 +9,19 @@ export default function SavedJobs({ onApply }) {
   }, []);
 
   const loadSaved = async () => {
-    const res = await axios.get('/api/saved');
+    const res = await axios.get('http://localhost:5000/api/saved');
     setSavedJobs(res.data);
   };
 
   const apply = async (job) => {
-    const res = await axios.post('/api/apply', job);
-    await axios.post('/api/unsave', job);
+    const res = await axios.post('http://localhost:5000/api/apply', job);
+    await axios.post('http://localhost:5000/api/unsave', job);
     setSavedJobs(savedJobs.filter(j => j.url !== job.url));
     onApply(job.url);
   };
 
   const unsave = async (job) => {
-    await axios.post('/api/unsave', job);
+    await axios.post('http://localhost:5000/api/unsave', job);
     setSavedJobs(savedJobs.filter(j => j.url !== job.url));
   };
 
