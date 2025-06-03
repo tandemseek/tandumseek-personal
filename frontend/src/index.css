@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global body styling */
+body {
+  @apply bg-white text-gray-900 font-sans;
+}
+
+/* Button styling */
+button {
+  @apply bg-primary text-white font-semibold rounded px-4 py-2 shadow hover:bg-primary-dark transition;
+}
+
+/* Input, Select, and Textarea fields */
+input, select, textarea {
+  @apply border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:ring-primary-light;
+}
