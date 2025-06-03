@@ -7,7 +7,11 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+import logRoutes from './routes/log.js';
+
 app.use('/api', apiRoutes);
+app.use('/api', logRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
