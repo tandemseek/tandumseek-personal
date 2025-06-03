@@ -1,6 +1,7 @@
+import { URL } from 'url';
 import fs from 'fs';
 
-const filePath = './backend/keywords.json';
+const filePath = new URL('../keywords.json', import.meta.url);
 
 export function getKeywords() {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));

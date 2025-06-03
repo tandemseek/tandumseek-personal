@@ -1,3 +1,4 @@
+import { URL } from 'url';
 import express from 'express';
 import { fetchJobs } from '../utils/jobFetcher.js';
 import { generateResumeAndCoverLetter } from '../utils/openaiResumeGen.js';
@@ -5,7 +6,7 @@ import fs from 'fs';
 import { getKeywords, saveKeywords } from '../utils/keywordManager.js';
 
 const router = express.Router();
-const logPath = './backend/job_log.json';
+const logPath = new URL('../job_log.json', import.meta.url);
 
 router.get('/jobs', async (req, res) => {
   const keywords = getKeywords();
